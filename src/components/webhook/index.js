@@ -1,15 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
 import { useParams } from "react-router-dom";
-import { getWebhooksData } from "../../services/webhookz";
+import { API_URL } from "../../services/webhookz";
 import WebhookData from "../WebhookData";
 import ReactTimeAgo from "react-time-ago";
 import en from "javascript-time-ago/locale/en";
 import JavascriptTimeAgo from "javascript-time-ago";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { dracula } from "react-syntax-highlighter/dist/esm/styles/hljs";
-import { monokai } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { Typography } from "antd";
+import wretch from "wretch";
 
 function Webhook() {
     const { Paragraph, Text } = Typography;
@@ -23,7 +21,12 @@ function Webhook() {
     useEffect(() => {
         JavascriptTimeAgo.locale(en);
 
-        getWebhooksData(webhook)
+        wretch(`${API_URL}/${webhook}/data`)
+            .headers({
+                "Access-Control-Allow-Origin": "*",
+                crossDomain: true
+            })
+            .get()
             .json(response => {
                 setHooksData(response);
 

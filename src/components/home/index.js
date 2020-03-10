@@ -1,10 +1,16 @@
 import React from "react";
 import "./styles.css";
-import { create } from "../../services/webhookz";
+import wretch from "wretch";
+import { API_URL } from "../../services/webhookz";
 
 function Home() {
     const createWebhook = () => {
-        create()
+        wretch(API_URL)
+            .headers({
+                "Access-Control-Allow-Origin": "*",
+                crossDomain: true
+            })
+            .post()
             .json(response => {
                 if (response.id.name) {
                     window.location.replace(`/${response.id.name}`);
