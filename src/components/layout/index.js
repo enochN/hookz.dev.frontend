@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "../home";
 import "./styles.css";
 import Webhook from "../webhook";
-import { create } from "../../services/webhookz";
+import wretch from "wretch";
+import { API_URL } from "../../services/webhookz";
+import Privacy from "../privacy";
+import About from "../about";
 
 function Layout() {
+    // making a direct call because exporting services not working because of semi column
     const createWebhook = () => {
-        create()
+        wretch(API_URL)
+            .headers({
+                "Access-Control-Allow-Origin": "*",
+                crossDomain: true
+            })
+            .post()
             .json(response => {
                 if (response.id.name) {
                     window.location.replace(`/${response.id.name}`);
@@ -34,11 +43,11 @@ function Layout() {
                     <div className="container-fluid">
                         <div className="row align-items-center">
                             <div className="col-11 col-xl-2">
-                                <h1 className="mb-0">
+                                <h1 className="mb-0 main-logo">
                                     <a href="/" className="text-white h2 mb-0">
-                                        Webhooks
+                                        hooks
                                         <span className="text-primary">
-                                            Tester
+                                            .dev
                                         </span>{" "}
                                     </a>
                                 </h1>
@@ -53,13 +62,12 @@ function Layout() {
                                             <a href="/">Home</a>
                                         </li>
                                         <li>
-                                            <a href="/">About</a>
+                                            <a href="/about">About</a>
                                         </li>
                                         <li>
-                                            <a href="/">Privacy</a>
-                                        </li>
-                                        <li>
-                                            <a href="/">Github</a>
+                                            <a href="https://github.com/rasheeda">
+                                                Github
+                                            </a>
                                         </li>
                                         <li className="cta">
                                             <a href="#" onClick={createWebhook}>
@@ -68,14 +76,6 @@ function Layout() {
                                         </li>
                                     </ul>
                                 </nav>
-                            </div>
-                            <div className="d-inline-block d-xl-none ml-md-0 mr-auto py-3">
-                                <a
-                                    href="#"
-                                    className="site-menu-toggle js-menu-toggle text-white"
-                                >
-                                    <span className="icon-menu h3"></span>
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -87,18 +87,20 @@ function Layout() {
                     <div className="row align-items-center">
                         <Switch>
                             <Route path="/" exact component={Home} />
+                            <Route path="/about" exact component={About} />
+                            <Route path="/privacy" exact component={Privacy} />
                             <Route path="/:webhook" exact component={Webhook} />
                         </Switch>
                     </div>
                 </div>
             </div>
-            {/* <div className="footer">
-                        <a href="https://mandeeya.io">mandeeya.io </a> |{" "}
-                        {new Date().getFullYear()} |{" "}
-                        <a className="active" href="#">
-                            Privacy Terms
-                        </a>
-                    </div> */}
+            <div className="site-footer">
+                made with love by <a href="https://mandeeya.io">mandeeya.io </a>{" "}
+                | {new Date().getFullYear()} |{" "}
+                <a href="/privacy" className="active">
+                    Privacy Terms
+                </a>
+            </div>
         </Router>
     );
 }

@@ -193,14 +193,9 @@ h5,
 }
 
 .site-footer {
-    padding: 4em 0;
     background: #1b1d24;
-}
-
-@media (min-width: 768px) {
-    .site-footer {
-        padding: 8em 0;
-    }
+    padding: 10px;
+    text-align: center;
 }
 
 .site-footer .border-top {
@@ -227,7 +222,7 @@ h5,
 }
 
 .site-footer .footer-heading {
-    font-size: 16px;
+    font-size: 12px;
     color: #818186 !important;
 }
 
@@ -1145,4 +1140,8 @@ h5,
     width: 40px;
     height: 40px;
     line-height: 40px;
+}
+
+.main-logo {
+    margin-left: 50%;
 }
