@@ -9,9 +9,11 @@ function About() {
                 quickly test webhooks or catch and inspect all http requests.
             </p>
             <p>
-                hookz.dev is built with nodejs (backend) and reactjs (frontend).
-                View on <a href="https://github.com/rasheeda">github</a>.
-                Backend and Frontend repositories are separate
+                The application is built with{" "}
+                <a href="https://expressjs.com/">nodejs/expressjs</a> (backend)
+                and <a href="https://reactjs.org/">reactjs</a> (frontend). View
+                on <a href="https://github.com/rasheeda">github</a>. Backend and
+                Frontend repositories are separate
             </p>
         </div>
     );

@@ -95,7 +95,7 @@ function Layout() {
                 </div>
             </div>
             <div className="site-footer">
-                made with love by <a href="https://mandeeya.io">mandeeya.io </a>{" "}
+                made with tea by <a href="https://mandeeya.io">mandeeya.io </a>{" "}
                 | {new Date().getFullYear()} |{" "}
                 <a href="/privacy" className="active">
                     Privacy Terms
