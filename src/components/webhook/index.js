@@ -59,6 +59,7 @@ function Webhook() {
                 <p className="request-total">
                     <span>{hooksData.length}</span> Total Requests
                 </p>
+                <p className="delete-webhook-data">Buttons</p>
                 <ul>
                     {hooksData.length > 0 &&
                         hooksData.map((data, index) => (

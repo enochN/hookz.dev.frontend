@@ -110,3 +110,10 @@
     width: 850px;
     margin-left: 230px;
 }
+
+.delete-webhook-data {
+    margin-bottom: 10px;
+    justify-content: center;
+    margin-left: 15px;
+    font-size: 15px;
+}
