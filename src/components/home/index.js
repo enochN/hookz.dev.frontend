@@ -24,7 +24,7 @@ function Home() {
     return (
         <div className="col-md-12 home">
             <h1 className="d-block mb-5">
-                Webhooks tester is a free online tool for helping developers
+                hookz.dev is a free online tool for helping developers
                 test/debug web hooks and other types of HTTP requests.
             </h1>
             <span className="d-block mb-5 caption">

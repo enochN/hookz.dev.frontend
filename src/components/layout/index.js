@@ -45,7 +45,7 @@ function Layout() {
                             <div className="col-11 col-xl-2">
                                 <h1 className="mb-0 main-logo">
                                     <a href="/" className="text-white h2 mb-0">
-                                        hooks
+                                        hookz
                                         <span className="text-primary">
                                             .dev
                                         </span>{" "}
