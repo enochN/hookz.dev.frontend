@@ -16,12 +16,13 @@ function Privacy() {
             <p>
                 By using the services provided to you at hookz.dev, you accept
                 that the following data is stored: <br />
-                Your IP address, for rate limiting
-                <br />
-                Any data that you submit to hookz.dev to be delivered back to
-                the user. <br />
-                The data provided by the user will be permanently deleted after
-                30 days and cannot be recovered.
+                <ul>
+                    <li>Your IP address, for rate limiting</li>
+                    <li>
+                        Any data that you submit to hookz.dev and it's sub
+                        domains to be delivered back to you.
+                    </li>
+                </ul>
             </p>
 
             <h4>3. Analytics</h4>
@@ -36,8 +37,8 @@ function Privacy() {
             <h4>5. Your Rights</h4>
             <p>
                 If you have used the service and want to delete the data before
-                30 days, there's a delete button which can be used, else, you
-                can send an email to hookz.dev@mandeeya.io
+                30 days, there's a delete button which can be used. If there is
+                an issue, you can send an email to hello@mandeeya.io
             </p>
 
             <h4>6. Where we send your data</h4>
