@@ -7,6 +7,20 @@ import wretch from "wretch";
 import { API_URL } from "../../services/webhookz";
 import Privacy from "../privacy";
 import About from "../about";
+import ReactGA from "react-ga";
+import { createBrowserHistory } from "history";
+
+const trackingId = "UA-163681319-1"; // sample ID
+ReactGA.initialize(trackingId);
+ReactGA.pageview("/");
+
+const history = createBrowserHistory();
+
+// Initialize google analytics page view tracking
+history.listen(location => {
+    ReactGA.set({ page: location.pathname }); // Update the user's current page
+    ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
 
 function Layout() {
     // making a direct call because exporting services not working because of semi column
@@ -28,7 +42,7 @@ function Layout() {
     };
 
     return (
-        <Router>
+        <Router history={history}>
             <div className="site-wrap">
                 <div className="site-mobile-menu">
                     <div className="site-mobile-menu-header">
